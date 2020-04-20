@@ -9,6 +9,7 @@ import "./App.css";
 import PopularMovies from "./components/PopularMovies";
 import SearchBar from "./components/SearchBar";
 import SearchResults from "./components/SearchResults";
+import MovieDetail from "./components/MovieDetail";
 
 const cache = new InMemoryCache();
 const link = new HttpLink();
@@ -33,7 +34,9 @@ function App() {
             <Route path="/search">
               <SearchResults />
             </Route>
-            <Route path="/movie/:movieId">Movie detail</Route>
+            <Route path="/movie/:movieId">
+              <MovieDetail />
+            </Route>
             <Route path="/">
               <PopularMovies />
             </Route>

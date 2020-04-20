@@ -4,20 +4,17 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL fragment: MovieListFragment
+// GraphQL fragment: CastMemberFragment
 // ====================================================
 
-export interface MovieListFragment_poster {
+export interface CastMemberFragment_profile {
   __typename: "Image";
   url: string;
 }
 
-export interface MovieListFragment {
-  __typename: "Movie";
-  id: string;
-  title: string;
-  releaseDate: string;
-  poster: MovieListFragment_poster | null;
-  overview: string;
-  language: string;
+export interface CastMemberFragment {
+  __typename: "CastMember";
+  name: string;
+  profile: CastMemberFragment_profile | null;
+  order: number;
 }

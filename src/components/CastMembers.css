@@ -1,0 +1,17 @@
+.cast-container {
+  display: flex;
+  overflow: scroll;
+}
+
+.cast-item {
+  flex-shrink: 0;
+  margin-right: 10px;
+  width: 100px;
+}
+.cast-item img {
+  border-radius: 5px;
+}
+.cast-item .name {
+  font-weight: bold;
+  padding: 10px 5px 15px;
+}

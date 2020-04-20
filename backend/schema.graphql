@@ -1,26 +1,26 @@
 type Genre {
   id: ID!
-  name: String
+  name: String!
 }
 type Image {
   url: String!
 }
 type CastMember {
   id: ID!
-  name: String
+  name: String!
   profile: Image
-  order: Int
+  order: Int!
 }
 type Movie {
   id: ID!
-  title: String
-  releaseDate: String
-  genre: [Genre]
+  title: String!
+  releaseDate: String!
+  genre: [Genre!]
   backdrop: Image
   poster: Image
-  overview: String
-  cast: [CastMember]
-  language: String
+  overview: String!
+  cast: [CastMember!]
+  language: String!
 }
 
 type Query {

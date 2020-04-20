@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import "./MovieListItem.css";
 import { MovieListItemFragment } from "./__generated__/MovieListItemFragment";
-import MoviePoster from "./MoviePoster";
+import Image from "./Image";
 
 export const movieListItemFragment = gql`
   fragment MovieListItemFragment on Movie {
@@ -26,7 +26,7 @@ export default function MovieListItem({
 }) {
   return (
     <Link to={`/movie/${movie.id}`} className="movie-list-item">
-      <MoviePoster src={movie.poster?.url} alt={movie.title} />
+      <Image src={movie.poster?.url} alt={movie.title} />
       <div className="details">
         <h1>{movie.title}</h1>
         <p>

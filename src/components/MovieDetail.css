@@ -1,0 +1,41 @@
+.backdrop-container {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 450px;
+  opacity: 0.3;
+}
+
+.movie-detail-header {
+  margin-top: 80px;
+  margin-bottom: 120px;
+  display: flex;
+  text-shadow: 1px 1px 2px white;
+  align-items: center;
+}
+.movie-detail-header .poster {
+  border-radius: 5px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+.movie-detail-header h1 {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.movie-detail-header p {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.movie-detail-header p .emphasis {
+  font-weight: bold;
+}
+
+.movie-detail-content h3 {
+  margin-top: 30px;
+}

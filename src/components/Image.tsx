@@ -1,7 +1,7 @@
 import React from "react";
-import "./MoviePoster.css";
+import "./Image.css";
 
-export default function MoviePoster({
+export default function Image({
   src,
   alt,
 }: {
@@ -9,7 +9,7 @@ export default function MoviePoster({
   alt?: string | null;
 }) {
   return (
-    <div className="movie-poster">
+    <div className="image">
       {src != null ? (
         <img src={src} alt={alt || ""} />
       ) : (
