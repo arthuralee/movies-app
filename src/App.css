@@ -3,3 +3,10 @@
   padding: 0 30px;
   margin: 0 auto;
 }
+
+.App-header a:link,
+.App-header a:visited,
+.App-header a:active {
+  text-decoration: none;
+  color: black;
+}

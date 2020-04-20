@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
+import { getSearchQ } from "../util";
+
 export default function SearchBar() {
-  const [searchQ, setSearchQ] = useState("");
   const history = useHistory();
+  const [searchQ, setSearchQ] = useState("");
+
+  useEffect(() => {
+    setSearchQ(getSearchQ(history));
+  }, [history.location]);
 
   return (
     <form

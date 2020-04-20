@@ -2,12 +2,13 @@ import { ApolloClient } from "apollo-client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache, NormalizedCacheObject } from "apollo-cache-inmemory";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React from "react";
 
 import "./App.css";
 import PopularMovies from "./components/PopularMovies";
 import SearchBar from "./components/SearchBar";
+import SearchResults from "./components/SearchResults";
 
 const cache = new InMemoryCache();
 const link = new HttpLink();
@@ -23,11 +24,15 @@ function App() {
       <Router>
         <div className="App">
           <header className="App-header">
-            <h1>Movies App</h1>
+            <Link to="/">
+              <h1>Movies</h1>
+            </Link>
           </header>
           <SearchBar />
           <Switch>
-            <Route path="/search">Search route</Route>
+            <Route path="/search">
+              <SearchResults />
+            </Route>
             <Route path="/movie/:movieId">Movie detail</Route>
             <Route path="/">
               <PopularMovies />
