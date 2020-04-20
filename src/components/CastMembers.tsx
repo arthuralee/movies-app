@@ -7,6 +7,7 @@ import Image from "./Image";
 
 export const castMemberFragment = gql`
   fragment CastMemberFragment on CastMember {
+    id
     name
     profile {
       url
@@ -23,15 +24,19 @@ export default function CastMembers({
   return (
     <div>
       {cast ? (
-        <div className="cast-container">
-          {cast
-            .sort((a, b) => a?.order - b?.order)
-            .map((member) => (
-              <div className="cast-item">
-                <Image src={member.profile?.url} alt={member.name} />
-                <div className="name">{member.name}</div>
-              </div>
-            ))}
+        <div className="cast-outer-container">
+          <div className="fade" />
+          <div className="cast-container">
+            {cast
+              .sort((a, b) => a?.order - b?.order)
+              .map((member) => (
+                <div className="cast-item" key={member.id}>
+                  <Image src={member.profile?.url} alt={member.name} />
+                  <div className="name">{member.name}</div>
+                </div>
+              ))}
+            <div className="spacer" />
+          </div>
         </div>
       ) : (
         <div>No cast members</div>

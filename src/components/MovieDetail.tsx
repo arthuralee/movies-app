@@ -11,6 +11,7 @@ import Image from "./Image";
 import "./MovieDetail.css";
 import GenrePills from "./GenrePills";
 import CastMembers, { castMemberFragment } from "./CastMembers";
+import { Backdrop } from "./Backdrop";
 
 const movieDetailQuery = gql`
   query MovieDetailQuery($id: ID!) {
@@ -48,10 +49,9 @@ export default function MovieDetail() {
     <div>
       {data && data.movie ? (
         <>
-          <div
-            className="backdrop-container"
-            style={{ backgroundImage: `url(${data.movie.backdrop?.url})` }}
-          ></div>
+          <div className="backdrop-container">
+            <Backdrop src={data.movie.backdrop?.url} />
+          </div>
           <div className="movie-detail-header">
             <div className="poster">
               <Image src={data.movie.poster?.url} alt={data.movie.title} />
@@ -72,15 +72,9 @@ export default function MovieDetail() {
             <h3>Overview</h3>
             <p>{data.movie.overview}</p>
             <h3>Genres</h3>
-            <p>
-              <GenrePills
-                genres={data.movie.genre?.map((genre) => genre.name)}
-              />
-            </p>
+            <GenrePills genres={data.movie.genre?.map((genre) => genre.name)} />
             <h3>Cast</h3>
-            <p>
-              <CastMembers cast={data.movie.cast} />
-            </p>
+            <CastMembers cast={data.movie.cast} />
           </div>
         </>
       ) : null}

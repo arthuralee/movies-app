@@ -29,6 +29,7 @@ export interface MovieDetailQuery_movie_cast_profile {
 
 export interface MovieDetailQuery_movie_cast {
   __typename: "CastMember";
+  id: string;
   name: string;
   profile: MovieDetailQuery_movie_cast_profile | null;
   order: number;

@@ -10,7 +10,7 @@ export default function SearchBar() {
 
   useEffect(() => {
     setSearchQ(getSearchQ(history));
-  }, [history.location]);
+  }, [history, history.location]);
 
   return (
     <form

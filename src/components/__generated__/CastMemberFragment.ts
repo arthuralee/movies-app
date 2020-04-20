@@ -14,6 +14,7 @@ export interface CastMemberFragment_profile {
 
 export interface CastMemberFragment {
   __typename: "CastMember";
+  id: string;
   name: string;
   profile: CastMemberFragment_profile | null;
   order: number;
