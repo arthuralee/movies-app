@@ -14,7 +14,7 @@ type CastMember {
 type Movie {
   id: ID!
   title: String!
-  releaseDate: String!
+  releaseDate: String
   genre: [Genre!]
   backdrop: Image
   poster: Image
@@ -25,6 +25,6 @@ type Movie {
 
 type Query {
   popularMovies: [Movie!]!
-  searchMovies(query: String!): [Movie!]!
+  searchMovies(query: String!, offset: Int): [Movie!]!
   movie(id: ID!): Movie
 }

@@ -12,8 +12,8 @@ import { useHistory } from "react-router-dom";
 import Loading from "./Loading";
 
 const searchResultsQuery = gql`
-  query SearchResultsQuery($query: String!) {
-    searchMovies(query: $query) {
+  query SearchResultsQuery($query: String!, $offset: Int) {
+    searchMovies(query: $query, offset: $offset) {
       ...MovieListFragment
     }
   }
@@ -37,6 +37,29 @@ export default function SearchResults() {
       ) : data && data.searchMovies ? (
         <MovieList movies={data.searchMovies} />
       ) : null}
+      <button
+        onClick={() => {
+          fetchMore({
+            variables: {
+              offset: data?.searchMovies.length,
+            },
+            updateQuery(prev: SearchResultsQuery, { fetchMoreResult }) {
+              if (!fetchMoreResult) {
+                return prev;
+              }
+              return {
+                ...prev,
+                searchMovies: [
+                  ...prev.searchMovies,
+                  ...fetchMoreResult.searchMovies,
+                ],
+              };
+            },
+          });
+        }}
+      >
+        more
+      </button>
     </div>
   );
 }

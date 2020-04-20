@@ -6,7 +6,7 @@ module.exports = {
       return dataSources.tmdb.getPopularMovies();
     },
     searchMovies(_, ctx, { dataSources }) {
-      return dataSources.tmdb.searchMovies(ctx.query);
+      return dataSources.tmdb.searchMovies(ctx.query, ctx.offset);
     },
     movie(_, ctx, { dataSources }) {
       return dataSources.tmdb.getMovieById(ctx.id);

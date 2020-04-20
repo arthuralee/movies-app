@@ -28,4 +28,5 @@ export interface SearchResultsQuery {
 
 export interface SearchResultsQueryVariables {
   query: string;
+  offset?: number | null;
 }
