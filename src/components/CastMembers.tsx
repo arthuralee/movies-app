@@ -23,7 +23,7 @@ export default function CastMembers({
 }) {
   return (
     <div>
-      {cast ? (
+      {cast && cast.length ? (
         <div className="cast-outer-container">
           <div className="fade" />
           <div className="cast-container">
@@ -39,7 +39,7 @@ export default function CastMembers({
           </div>
         </div>
       ) : (
-        <div>No cast members</div>
+        <div>No known cast members</div>
       )}
     </div>
   );

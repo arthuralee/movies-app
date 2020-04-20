@@ -24,7 +24,7 @@ export default function SearchResults() {
   const history = useHistory();
   const searchQ = getSearchQ(history);
 
-  const { data, loading, fetchMore } = useQuery<
+  const { data, loading } = useQuery<
     SearchResultsQuery,
     SearchResultsQueryVariables
   >(searchResultsQuery, { variables: { query: searchQ } });
@@ -37,29 +37,6 @@ export default function SearchResults() {
       ) : data && data.searchMovies ? (
         <MovieList movies={data.searchMovies} />
       ) : null}
-      <button
-        onClick={() => {
-          fetchMore({
-            variables: {
-              offset: data?.searchMovies.length,
-            },
-            updateQuery(prev: SearchResultsQuery, { fetchMoreResult }) {
-              if (!fetchMoreResult) {
-                return prev;
-              }
-              return {
-                ...prev,
-                searchMovies: [
-                  ...prev.searchMovies,
-                  ...fetchMoreResult.searchMovies,
-                ],
-              };
-            },
-          });
-        }}
-      >
-        more
-      </button>
     </div>
   );
 }
