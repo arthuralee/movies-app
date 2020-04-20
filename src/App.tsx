@@ -28,8 +28,8 @@ function App() {
             <Link to="/">
               <h1>Movies</h1>
             </Link>
+            <SearchBar />
           </header>
-          <SearchBar />
           <Switch>
             <Route path="/search">
               <SearchResults />
