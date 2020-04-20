@@ -9,6 +9,7 @@ import {
 import MovieList, { movieListFragment } from "./MovieList";
 import { getSearchQ } from "../util";
 import { useHistory } from "react-router-dom";
+import Loading from "./Loading";
 
 const searchResultsQuery = gql`
   query SearchResultsQuery($query: String!) {
@@ -23,7 +24,7 @@ export default function SearchResults() {
   const history = useHistory();
   const searchQ = getSearchQ(history);
 
-  const { data, loading, error, fetchMore } = useQuery<
+  const { data, loading, fetchMore } = useQuery<
     SearchResultsQuery,
     SearchResultsQueryVariables
   >(searchResultsQuery, { variables: { query: searchQ } });
@@ -31,7 +32,9 @@ export default function SearchResults() {
   return (
     <div>
       <h2>Results for "{searchQ}"</h2>
-      {data && data.searchMovies ? (
+      {loading ? (
+        <Loading />
+      ) : data && data.searchMovies ? (
         <MovieList movies={data.searchMovies} />
       ) : null}
     </div>

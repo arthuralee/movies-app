@@ -12,6 +12,7 @@ import "./MovieDetail.css";
 import GenrePills from "./GenrePills";
 import CastMembers, { castMemberFragment } from "./CastMembers";
 import { Backdrop } from "./Backdrop";
+import Loading from "./Loading";
 
 const movieDetailQuery = gql`
   query MovieDetailQuery($id: ID!) {
@@ -40,14 +41,16 @@ const movieDetailQuery = gql`
 export default function MovieDetail() {
   const { movieId } = useParams();
 
-  const { data, loading, error } = useQuery<
+  const { data, loading } = useQuery<
     MovieDetailQuery,
     MovieDetailQueryVariables
   >(movieDetailQuery, { variables: { id: movieId || "" } });
 
   return (
     <div>
-      {data && data.movie ? (
+      {loading ? (
+        <Loading />
+      ) : data && data.movie ? (
         <>
           <div className="backdrop-container">
             <Backdrop src={data.movie.backdrop?.url} />
