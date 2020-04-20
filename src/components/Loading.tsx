@@ -5,8 +5,8 @@ import "./Loading.css";
 export default function Loading() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // only show loading indicator when its taking more than
-  // a while, to prevent flashing the loading indicator
+  // no point showing a loading indicator if the loading
+  // is really fast
   useEffect(() => {
     const timer = window.setTimeout(() => {
       setIsVisible(true);

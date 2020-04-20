@@ -4,6 +4,7 @@ class TmdbAPI extends RESTDataSource {
   baseURL = "https://api.themoviedb.org/3/";
 
   willSendRequest(request) {
+    //TODO: move to env
     request.params.set("api_key", "81cf5724048c60af012e30896e9f13a6");
   }
 

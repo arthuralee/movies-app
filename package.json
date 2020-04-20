@@ -31,6 +31,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
+    "start-server": "node backend",
     "codegen": "apollo client:codegen --target typescript --watch"
   },
   "eslintConfig": {
