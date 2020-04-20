@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./MovieListItem.css";
 import { MovieListItemFragment } from "./__generated__/MovieListItemFragment";
 import Image from "./Image";
+import { formatDate } from "../util";
 
 export const movieListItemFragment = gql`
   fragment MovieListItemFragment on Movie {
@@ -33,7 +34,8 @@ export default function MovieListItem({
           <span className="label">Language:</span> {movie.language}
         </p>
         <p>
-          <span className="label">Released:</span> {movie.releaseDate}
+          <span className="label">Released:</span>{" "}
+          {formatDate(movie.releaseDate)}
         </p>
       </div>
     </Link>

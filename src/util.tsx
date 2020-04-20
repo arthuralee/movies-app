@@ -6,3 +6,12 @@ export function getSearchQ(history: History) {
   const searchQ = Array.isArray(qs.q) ? qs.q[0] : qs.q || "";
   return history.location.pathname === "/search" ? searchQ : "";
 }
+
+export function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString(undefined, {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}

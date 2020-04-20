@@ -13,6 +13,7 @@ import GenrePills from "./GenrePills";
 import CastMembers, { castMemberFragment } from "./CastMembers";
 import { Backdrop } from "./Backdrop";
 import Loading from "./Loading";
+import { formatDate } from "../util";
 
 const movieDetailQuery = gql`
   query MovieDetailQuery($id: ID!) {
@@ -63,7 +64,9 @@ export default function MovieDetail() {
               <h1>{data.movie.title}</h1>
               <p>
                 Released:{" "}
-                <span className="emphasis">{data.movie.releaseDate}</span>
+                <span className="emphasis">
+                  {formatDate(data.movie.releaseDate)}
+                </span>
               </p>
               <p>
                 Language:{" "}
