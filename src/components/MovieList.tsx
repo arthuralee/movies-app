@@ -13,11 +13,13 @@ export const movieListFragment = gql`
 `;
 
 export default function MovieList({ movies }: { movies: MovieListFragment[] }) {
-  return (
+  return movies.length > 0 ? (
     <div className="movie-list">
       {movies.map((movie) => (
         <MovieListItem movie={movie} key={movie.id} />
       ))}
     </div>
+  ) : (
+    <p>No results</p>
   );
 }
