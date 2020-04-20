@@ -1,5 +1,6 @@
 import React from "react";
 import gql from "graphql-tag";
+import { Link } from "react-router-dom";
 
 import "./MovieListItem.css";
 import { MovieListItemFragment } from "./__generated__/MovieListItemFragment";
@@ -7,6 +8,7 @@ import MoviePoster from "./MoviePoster";
 
 export const movieListItemFragment = gql`
   fragment MovieListItemFragment on Movie {
+    id
     title
     releaseDate
     poster {
@@ -23,7 +25,7 @@ export default function MovieListItem({
   movie: MovieListItemFragment;
 }) {
   return (
-    <a className="movie-list-item" href="">
+    <Link to={`/movie/${movie.id}`} className="movie-list-item">
       <MoviePoster src={movie.poster?.url} alt={movie.title} />
       <div className="details">
         <h1>{movie.title}</h1>
@@ -34,6 +36,6 @@ export default function MovieListItem({
           <span className="label">Released:</span> {movie.releaseDate}
         </p>
       </div>
-    </a>
+    </Link>
   );
 }

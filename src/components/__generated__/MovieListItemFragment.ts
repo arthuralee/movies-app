@@ -14,6 +14,7 @@ export interface MovieListItemFragment_poster {
 
 export interface MovieListItemFragment {
   __typename: "Movie";
+  id: string;
   title: string | null;
   releaseDate: string | null;
   poster: MovieListItemFragment_poster | null;
