@@ -13,14 +13,14 @@ type CastMember {
 }
 type Movie {
   id: ID!
-  title: String!
-  releaseDate: String!
+  title: String
+  releaseDate: String
   genre: [Genre!]
   backdrop: Image
   poster: Image
-  overview: String!
+  overview: String
   cast: [CastMember!]
-  language: String!
+  language: String
 }
 
 type Query {

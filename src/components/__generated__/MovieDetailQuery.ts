@@ -37,14 +37,14 @@ export interface MovieDetailQuery_movie_cast {
 
 export interface MovieDetailQuery_movie {
   __typename: "Movie";
-  title: string;
-  releaseDate: string;
+  title: string | null;
+  releaseDate: string | null;
   genre: MovieDetailQuery_movie_genre[] | null;
   backdrop: MovieDetailQuery_movie_backdrop | null;
   poster: MovieDetailQuery_movie_poster | null;
-  overview: string;
+  overview: string | null;
   cast: MovieDetailQuery_movie_cast[] | null;
-  language: string;
+  language: string | null;
 }
 
 export interface MovieDetailQuery {

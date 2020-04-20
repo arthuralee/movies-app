@@ -56,7 +56,6 @@ class TmdbAPI extends RESTDataSource {
   async searchMovies(query, offset) {
     const response = await this.get("search/movie", {
       query,
-      page: offset ? Math.floor(offset / 20) + 1 : 1,
     });
     return response.results;
   }

@@ -15,11 +15,11 @@ export interface SearchResultsQuery_searchMovies_poster {
 export interface SearchResultsQuery_searchMovies {
   __typename: "Movie";
   id: string;
-  title: string;
-  releaseDate: string;
+  title: string | null;
+  releaseDate: string | null;
   poster: SearchResultsQuery_searchMovies_poster | null;
-  overview: string;
-  language: string;
+  overview: string | null;
+  language: string | null;
 }
 
 export interface SearchResultsQuery {

@@ -7,7 +7,10 @@ export function getSearchQ(history: History) {
   return history.location.pathname === "/search" ? searchQ : "";
 }
 
-export function formatDate(dateStr: string) {
+export function formatDate(dateStr: string | null) {
+  if (!dateStr) {
+    return "Unknown date";
+  }
   return new Date(dateStr).toLocaleDateString(undefined, {
     month: "long",
     day: "numeric",

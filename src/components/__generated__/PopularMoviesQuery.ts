@@ -15,11 +15,11 @@ export interface PopularMoviesQuery_popularMovies_poster {
 export interface PopularMoviesQuery_popularMovies {
   __typename: "Movie";
   id: string;
-  title: string;
-  releaseDate: string;
+  title: string | null;
+  releaseDate: string | null;
   poster: PopularMoviesQuery_popularMovies_poster | null;
-  overview: string;
-  language: string;
+  overview: string | null;
+  language: string | null;
 }
 
 export interface PopularMoviesQuery {
