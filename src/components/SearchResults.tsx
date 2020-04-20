@@ -30,7 +30,7 @@ export default function SearchResults() {
 
   return (
     <div>
-      <h2>Results</h2>
+      <h2>Results for "{searchQ}"</h2>
       {data && data.searchMovies ? (
         <MovieList movies={data.searchMovies} />
       ) : null}

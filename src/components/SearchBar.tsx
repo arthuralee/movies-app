@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
+import "./SearchBar.css";
 import { getSearchQ } from "../util";
 
 export default function SearchBar() {
@@ -15,15 +16,20 @@ export default function SearchBar() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        history.push(`/search?q=${searchQ}`);
+        if (searchQ) {
+          history.push(`/search?q=${searchQ.trim()}`);
+        }
       }}
+      className="search-container"
     >
       <input
+        className="search-bar"
         type="text"
-        placeholder="search"
+        placeholder="Search for a movie"
         value={searchQ}
         onChange={(e) => setSearchQ(e.target.value)}
       />
+      <input className="search-button" type="submit" value="Search" />
     </form>
   );
 }

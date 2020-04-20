@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.App-header {
+  margin-bottom: 40px;
+}
+
 .App-header a:link,
 .App-header a:visited,
 .App-header a:active {
