@@ -1,0 +1,40 @@
+a.movie-list-item:link,
+a.movie-list-item:visited,
+a.movie-list-item:active {
+  color: #333;
+  text-decoration: none;
+}
+
+.movie-list-item {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 49%;
+  align-items: center;
+  transition: background-color 0.5s;
+}
+
+.movie-list-item:hover {
+  background-color: #f3f3f3;
+}
+
+.movie-list-item .details {
+  padding: 0 20px;
+}
+
+.movie-list-item h1 {
+  font-size: 18px;
+}
+
+.movie-list-item p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.movie-list-item .label {
+  color: #aaa;
+}

@@ -1,0 +1,21 @@
+.movie-poster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+}
+
+.movie-poster,
+.movie-poster img {
+  width: 100px;
+  height: 150px;
+}
+
+.movie-poster .noimg {
+  background: #eee;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #999;
+  padding: 5px;
+  text-align: center;
+}

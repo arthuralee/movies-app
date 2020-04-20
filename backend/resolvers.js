@@ -1,3 +1,5 @@
+const languageCodes = require("./languageCodes");
+
 module.exports = {
   Query: {
     popularMovies(_, __, { dataSources }) {
@@ -35,6 +37,9 @@ module.exports = {
     },
     cast(movie, _, { dataSources }) {
       return dataSources.tmdb.getCastByMovieId(movie.id);
+    },
+    language(movie) {
+      return languageCodes[movie.original_language].name;
     },
   },
   Image: {
